@@ -1,19 +1,38 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
-import LoginPage from '../screen/LandingPage';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import LoginPage from '../screen/LoginPage';
 import RegisterPage from '../screen/RegisterPage';
 import BottomTabNavigator from './BottomTabNavigator';
+import RecipeDetails from '../screen/RecipeDetails';
 
 const Stack = createStackNavigator();
 
 const AppNavigator = () => {
+    const [isFirstLaunch, setIsFirstLaunch] = React.useState(null);
+
+    React.useEffect(() => {
+        AsyncStorage.getItem('alreadyLaunched').then(value => {
+            if (value === null) {
+                AsyncStorage.setItem('alreadyLaunched', 'true');
+                setIsFirstLaunch(true);
+            } else {
+                setIsFirstLaunch(false);
+            }
+        });
+    }, []);
+
+    if (isFirstLaunch === null) {
+        return null;
+    }
+
     return (
         <NavigationContainer>
-            <Stack.Navigator initialRouteName="Landing">
+            <Stack.Navigator initialRouteName={isFirstLaunch ? "Landing" : "Home"}>
                 <Stack.Screen
                     name="Landing"
-                    component={LoginPage}
+                    component={LandingPage}
                     options={{ headerShown: false }}
                 />
                 <Stack.Screen
@@ -24,6 +43,16 @@ const AppNavigator = () => {
                 <Stack.Screen
                     name="Home"
                     component={BottomTabNavigator}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="Login"
+                    component={LoginPage}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="RecipeDetails"
+                    component={RecipeDetails}
                     options={{ headerShown: false }}
                 />
             </Stack.Navigator>

@@ -114,7 +114,7 @@ const RegisterPage = ({ navigation }) => {
                 <View style={{ flexDirection: 'row', justifyContent: 'center', marginTop: 20 }}>
                     <Text>Already a member? </Text>
                     <Text
-                        onPress={() => navigation.navigate('LoginPage')}
+                        onPress={() => navigation.navigate('Login')}
                         style={{ color: '#F26419' }}
                     >
                         Sign in

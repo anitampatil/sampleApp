@@ -2,7 +2,7 @@ import React from 'react';
 import { ImageBackground, View } from 'react-native';
 import { Text, Button, useTheme } from 'react-native-paper';
 
-const LoginPage = ({ navigation }) => {
+const LandingPage = ({ navigation }) => {
     const theme = useTheme();
 
     return (
@@ -40,7 +40,7 @@ const LoginPage = ({ navigation }) => {
 
                 <Button
                     mode="outlined"
-                    onPress={() => navigation.navigate('Home')} // Changed from 'Home' to 'Home'
+                    onPress={() => navigation.navigate('Login')}
                     style={{
                         width: '90%',
                         marginVertical: 10,
@@ -57,4 +57,4 @@ const LoginPage = ({ navigation }) => {
     );
 };
 
-export default LoginPage;
+export default LandingPage;

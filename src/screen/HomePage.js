@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, ScrollView, Image } from 'react-native';
 import { Text, Searchbar, Card, Avatar, IconButton } from 'react-native-paper';
+import { recipes } from '../data/recipes';
 
 
 const categories = [
@@ -23,7 +24,7 @@ const trending = [
     },
 ];
 
-const HomePage = () => {
+const HomePage = ({ navigation }) => {
     const [searchQuery, setSearchQuery] = React.useState('');
 
     return (
@@ -74,6 +75,21 @@ const HomePage = () => {
                                     marginBottom: 10,
                                     borderRadius: 15,
                                     overflow: 'hidden'
+                                }}
+                                onPress={() => {
+                                    let recipeData;
+                                    switch(category.name) {
+                                        case 'Breakfast':
+                                            recipeData = recipes.breakfast;
+                                            break;
+                                        case 'Desserts':
+                                            recipeData = recipes.dessert;
+                                            break;
+                                        case 'Fast Foods':
+                                            recipeData = recipes.fastFood;
+                                            break;
+                                    }
+                                    navigation.navigate('RecipeDetails', { recipe: recipeData });
                                 }}
                             >
                                 <Card.Cover source={category.image} />
