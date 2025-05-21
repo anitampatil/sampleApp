@@ -9,6 +9,13 @@ const categories = [
     { id: 2, name: 'Desserts', image: require('../../assets/desserts.jpeg') },
     { id: 3, name: 'Fast Foods', image: require('../../assets/fastfoods.jpg') },
     { id: 4, name: 'Vegan', image: require('../../assets/vegan.jpg') },
+    { id: 5, name: 'Lunch', image: require('../../assets/lunch.jpg') },
+    { id: 6, name: 'Dinner', image: require('../../assets/dinner.jpg') },
+    { id: 7, name: 'Salads', image: require('../../assets/salads.jpg') },
+    { id: 8, name: 'Beverages', image: require('../../assets/beverages.jpg') },
+    { id: 9, name: 'Snacks', image: require('../../assets/snacks.jpg') },
+    { id: 10, name: 'Soups', image: require('../../assets/soups.jpg') }
+
 ];
 
 const trending = [
@@ -62,7 +69,7 @@ const HomePage = ({ navigation }) => {
                         <IconButton
                             icon="chevron-right"
                             size={20}
-                            onPress={() => { }}
+                            onPress={() => { navigation.navigate('Categories') }}
                         />
                     </View>
                     <ScrollView horizontal showsHorizontalScrollIndicator={false}>
@@ -70,7 +77,7 @@ const HomePage = ({ navigation }) => {
                             <Card
                                 key={category.id}
                                 style={{
-                                    width: 100,
+                                    width: 170,
                                     marginRight: 12,
                                     marginBottom: 10,
                                     borderRadius: 15,
@@ -78,7 +85,7 @@ const HomePage = ({ navigation }) => {
                                 }}
                                 onPress={() => {
                                     let recipeData;
-                                    switch(category.name) {
+                                    switch (category.name) {
                                         case 'Breakfast':
                                             recipeData = recipes.breakfast;
                                             break;

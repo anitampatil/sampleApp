@@ -18,12 +18,12 @@ const RecipeDetails = ({ route, navigation }) => {
                     <IconButton
                         icon="dots-vertical"
                         size={24}
-                        onPress={() => {}}
+                        onPress={() => { }}
                         style={{ position: 'absolute', top: 40, right: 10, zIndex: 1 }}
                     />
                     <Image
                         source={recipe.image}
-                        style={{ width: '100%', height: 250, borderRadius: 15 }}
+                        style={{ width: '100%', height: 250, borderRadius: 15, marginTop: 50 }}
                     />
 
                     <View style={{ padding: 16 }}>
@@ -63,12 +63,12 @@ const RecipeDetails = ({ route, navigation }) => {
                         </Text>
 
                         {recipe.ingredients.map((ingredient, index) => (
-                            <View 
+                            <View
                                 key={index}
-                                style={{ 
-                                    flexDirection: 'row', 
+                                style={{
+                                    flexDirection: 'row',
                                     justifyContent: 'space-between',
-                                    marginBottom: 8 
+                                    marginBottom: 8
                                 }}
                             >
                                 <Text>{ingredient.item}</Text>
