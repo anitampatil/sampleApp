@@ -12,7 +12,27 @@ const categoryDishes = {
             image: require('../../assets/soups.jpg'),
             time: '15 min',
             rating: '4.5',
-            description: 'Healthy and hearty breakfast'
+            description: 'Healthy and hearty breakfast',
+            prepTime: '5 min',
+            cookTime: '10 min',
+            servings: '2',
+            nutrition: {
+                calories: '350 kcal',
+                protein: '12g',
+                carbs: '58g',
+                fat: '8g'
+            },
+            ingredients: [
+                { item: 'Rolled Oats', amount: '1 cup' },
+                { item: 'Milk', amount: '2 cups' },
+                { item: 'Honey', amount: '2 tbsp' }
+            ],
+            steps: [
+                'Bring milk to a boil',
+                'Add oats and reduce heat',
+                'Cook for 5 minutes, stirring occasionally',
+                'Add honey and serve'
+            ]
         },
         { id: 2, name: 'Egg Omelet', image: require('../../assets/soups.jpg'), time: '10 min', rating: '4.8' },
         { id: 3, name: 'Avocado Toast', image: require('../../assets/fastfoods.jpg'), time: '5 min', rating: '4.3' },
